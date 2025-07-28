@@ -1,18 +1,18 @@
 {
   "manifest_version": 3,
   "name": "專注分頁模式 (Focus Tabs)",
-  "version": "1.0",
+  "version": "1.2",
   "description": "一鍵隱藏所有非白名單的分頁，專注於當前任務。",
   "permissions": [
-    "tabs",      // 允許擴充功能存取和操作分頁
-    "storage"    // 允許擴充功能儲存使用者設定
+    "tabs",
+    "storage"
   ],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "icon.png"
+    "default_icon": "/icon.png"
   },
   "commands": {
     "toggle-hide-tabs": {
@@ -24,6 +24,6 @@
     }
   },
   "icons": {
-    "128": "icon.png"
+    "128": "/icon.png"
   }
 }

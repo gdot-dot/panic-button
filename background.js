@@ -7,7 +7,7 @@ chrome.commands.onCommand.addListener((command) => {
 
 // 當擴充功能第一次安裝或更新時，確保圖示是預設狀態
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.action.setIcon({ path: "/icon128.png" });
+  chrome.action.setIcon({ path: "/icon.png" });
 });
 
 // 主要的功能函數
@@ -37,12 +37,12 @@ async function toggleTabsWithNewWindow() {
           // 在移回分頁後，再關閉儲存視窗
           await chrome.windows.remove(storageWindowId);
           
-          await chrome.action.setIcon({ path: "/icon128.png" });
+          await chrome.action.setIcon({ path: "/icon.png" });
           console.log("分頁已恢復。");
 
       } catch (error) {
           console.log("恢復過程出錯，可能視窗已被手動關閉。", error);
-          await chrome.action.setIcon({ path: "/icon128.png" });
+          await chrome.action.setIcon({ path: "/icon.png" });
       } finally {
           await chrome.storage.session.remove(['storageWindowId', 'mainWindoId']);
       }
@@ -78,7 +78,7 @@ async function toggleTabsWithNewWindow() {
           
           // 儲存「儲存視窗」和「主視窗」的ID
           await chrome.storage.session.set({ storageWindowId: newWindow.id, mainWindoId: currentWindow.id });
-          await chrome.action.setIcon({ path: "/icon_active.png" });
+          await chrome.action.setIcon({ path: "/active.png" });
           console.log(`已將 ${tabsToHide.length} 個分頁移動到新的最小化視窗中。`);
       } else {
           console.log("沒有需要隱藏的分頁。");
